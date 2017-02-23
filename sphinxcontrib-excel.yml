@@ -1,0 +1,11 @@
+overrides: "pyexcel.yaml"
+name: "sphinxcontrib-excel"
+nick_name: spexcel
+version: 0.0.1
+release: 0.0.1
+dependencies:
+  - pyexcel>=0.4.4
+  - pyexcel-xls>=0.3.0
+  - pyexcel-xlsx>=0.3.0
+  - pyexcel-ods3>=0.3.0
+description: Embed excel file as an excel-alike table into sphinx documentation.
