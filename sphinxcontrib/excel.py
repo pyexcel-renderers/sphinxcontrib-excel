@@ -12,6 +12,7 @@ from docutils.parsers.rst import Directive
 import docutils.core
 import pyexcel
 
+
 class PyexcelTable(Directive):
     required_arguments = 1
     optional_arguments = 0

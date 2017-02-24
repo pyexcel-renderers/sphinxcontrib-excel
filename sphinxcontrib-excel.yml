@@ -1,6 +1,8 @@
 overrides: "pyexcel.yaml"
 name: "sphinxcontrib-excel"
-nick_name: spexcel
+misc: sphinxcontrib
+exclude_doctest: true
+nodocs: true
 version: 0.0.1
 release: 0.0.1
 dependencies:
