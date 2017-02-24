@@ -1,3 +1,12 @@
+"""
+    sphinxcontrib.excel
+    ~~~~~~~~~~~~~~~~~~~~
+
+    Embed excel file as an excel-alike table into sphinx documentation.
+
+    :copyright: (c) 2017 by Onni Software Ltd.
+    :license: New BSD, see LICENSE for details.
+"""
 from docutils.parsers.rst import Directive
 
 import docutils.core
