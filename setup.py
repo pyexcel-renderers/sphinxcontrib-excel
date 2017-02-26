@@ -41,8 +41,7 @@ CLASSIFIERS = [
 INSTALL_REQUIRES = [
     'pyexcel>=0.4.4',
     'pyexcel-xls>=0.3.0',
-    'pyexcel-xlsx>=0.3.0',
-    'pyexcel-ods3>=0.3.0',
+    'pyexcel-odsr>=0.3.0',
 ]
 
 
