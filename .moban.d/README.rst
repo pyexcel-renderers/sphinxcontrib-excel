@@ -1,5 +1,8 @@
 {% extends "BASIC-README.rst.jj2" %}
 
+{%block documentation_link%}
+{%endblock%}
+
 {%block constraint%}
 {%endblock%}
 
@@ -18,6 +21,9 @@
 {%endblock%}
 
 {%block usage%}
+
+Setup
+================================================================================
 
 Please add sphinxcontrib-excel into your conf.py file::
 

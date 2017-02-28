@@ -8,8 +8,6 @@ sphinxcontrib-excel - Let you focus on data, instead of file formats
 .. image:: https://codecov.io/github/pyexcel/sphinxcontrib-excel/coverage.png
     :target: https://codecov.io/github/pyexcel/sphinxcontrib-excel
 
-.. image:: https://readthedocs.org/projects/sphinxcontrib-excel/badge/?version=latest
-   :target: http://sphinxcontrib-excel.readthedocs.org/en/latest/
 
 
 **sphinxcontrib-excel** uses pyexcel to read an excel files and renders into an excel-alike sheet in your sphinx documentation. The excel file formats are:
@@ -44,6 +42,9 @@ or clone it and install it:
     $ python setup.py install
 
 
+
+Setup
+================================================================================
 
 Please add sphinxcontrib-excel into your conf.py file::
 
