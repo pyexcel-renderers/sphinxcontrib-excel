@@ -6,7 +6,7 @@ nodocs: true
 version: 0.0.1
 release: 0.0.1
 dependencies:
-  - pyexcel>=0.4.4
+  - pyexcel>=0.5.0
   - pyexcel-xls>=0.3.0
   - pyexcel-odsr>=0.3.0
 description: Embed excel file as an excel-alike table into sphinx documentation.
