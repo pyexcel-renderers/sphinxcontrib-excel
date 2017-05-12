@@ -8,6 +8,7 @@
     :license: New BSD, see LICENSE for details.
 """
 from docutils.parsers.rst import Directive
+from sphinx.util.i18n import search_image_for_language
 
 import docutils.core
 import pyexcel
@@ -20,7 +21,10 @@ class PyexcelTable(Directive):
     has_content = True
 
     def run(self):
-        excel_file = self.arguments[0]
+        env = self.state.document.settings.env
+        fn = search_image_for_language(self.arguments[0], env)
+        relfn, excel_file = env.relfn2path(fn)
+        env.note_dependency(relfn)
         if len(self.arguments) == 2:
             width = self.arguments[1]
             width = width.split(' ')[-1]
