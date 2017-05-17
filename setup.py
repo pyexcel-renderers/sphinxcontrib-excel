@@ -44,6 +44,7 @@ INSTALL_REQUIRES = [
     'pyexcel-xls>=0.3.0',
     'pyexcel-odsr>=0.3.0',
     'pyexcel-handsontable',
+    'sphinx',
 ]
 
 
