@@ -14,4 +14,4 @@ targets:
   - test.sh: test.sh.jj2
   - test.bat: test.sh.jj2
   - .gitignore: .gitignore.jj2
-  - .travis.yml: travis.yml.jj2
+  - .travis.yml: travis.jj2
