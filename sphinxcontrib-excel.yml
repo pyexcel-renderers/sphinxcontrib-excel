@@ -12,4 +12,5 @@ dependencies:
   - pyexcel-odsr>=0.3.0
   - pyexcel-handsontable
   - sphinx
+  - lxml==3.4.4;platform_python_implementation=="PyPy"
 description: Embed excel file as an excel-alike table into sphinx documentation.

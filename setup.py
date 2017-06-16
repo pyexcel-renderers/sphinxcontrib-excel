@@ -11,7 +11,7 @@ PY26 = PY2 and sys.version_info[1] < 7
 NAME = 'sphinxcontrib-excel'
 AUTHOR = 'C.W.'
 VERSION = '0.0.1'
-EMAIL = 'wangc_2011 (at) hotmail.com'
+EMAIL = 'wangc_2011@hotmail.com'
 LICENSE = 'New BSD'
 DESCRIPTION = (
     'Embed excel file as an excel-alike table into sphinx documentation.' +
@@ -47,6 +47,8 @@ INSTALL_REQUIRES = [
     'sphinx',
 ]
 
+if python_implementation == "PyPy":
+    INSTALL_REQUIRES.append('lxml==3.4.4')
 
 PACKAGES = find_packages(exclude=['ez_setup', 'examples', 'tests'])
 EXTRAS_REQUIRE = {

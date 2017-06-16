@@ -4,3 +4,4 @@ pyexcel-xls>=0.3.0
 pyexcel-odsr>=0.3.0
 pyexcel-handsontable
 sphinx
+lxml==3.4.4;platform_python_implementation=="PyPy"
