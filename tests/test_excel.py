@@ -34,53 +34,55 @@ from nose.tools import eq_
 """
 
 
-@patch('sphinxcontrib.excel.search_image_for_language')
-def test_pyexcel_table_directive(fake_search):
-    from sphinxcontrib.excel import PyexcelTable
-    state = MagicMock()
-    fake_search.return_value = ''
-    arguments = [os.path.join("tests", "fixtures", "test.csv")]
-    state.document.settings.env.relfn2path.return_value = (None, arguments[0])
-    directive = PyexcelTable('test', arguments, None, None,
-                             None, None, None, state, None)
-    x = directive.run()
-    content = str(x[0])
+def _verify_result(directive_run_result):
+    content = str(directive_run_result[0])
     assert '<raw format="html" xml:space="preserve">' in content
     assert 'var mydata = [[1, 2, 3]]' in content
     assert 'activateFirst' in content
 
 
-@patch('sphinxcontrib.excel.search_image_for_language')
-def test_pyexcel_table_directive_with_width(fake_search):
-    from sphinxcontrib.excel import PyexcelTable
-    state = MagicMock()
-    fake_search.return_value = ''
-    arguments = [os.path.join("tests", "fixtures", "test.csv"), 'width: 600']
-    state.document.settings.env.relfn2path.return_value = (None, arguments[0])
-    directive = PyexcelTable('test', arguments, None, None,
-                             None, None, None, state, None)
-    x = directive.run()
-    content = str(x[0])
-    assert '<raw format="html" xml:space="preserve">' in content
-    assert 'var mydata = [[1, 2, 3]]' in content
-    assert 'activateFirst' in content
+class TestTableDirective:
+    def setUp(self):
+        self.patcher = patch('sphinxcontrib.excel.search_image_for_language')
+        fake_search = self.patcher.start()
+        fake_search.return_value = ''
 
+    def tearDown(self):
+        self.patcher.stop()
 
-@patch('sphinxcontrib.excel.search_image_for_language')
-def test_pyexcel_table_with_content(fake_search):
-    from sphinxcontrib.excel import PyexcelTable
-    state = MagicMock()
-    fake_search.return_value = ''
-    content = []
-    with open(os.path.join("tests", "fixtures", "test.csv"), 'r') as f:
-        content.append(f.readline())
-    directive = PyexcelTable('test', [], None, content,
-                             None, None, None, state, None)
-    x = directive.run()
-    content = str(x[0])
-    assert '<raw format="html" xml:space="preserve">' in content
-    assert 'var mydata = [[1, 2, 3]]' in content
-    assert 'activateFirst' in content
+    def test_pyexcel_table_directive(self):
+        from sphinxcontrib.excel import PyexcelTable
+        state = MagicMock()
+        arguments = [os.path.join("tests", "fixtures", "test.csv")]
+        state.document.settings.env.relfn2path.return_value = (
+            None, arguments[0])
+        directive = PyexcelTable('test', arguments, None, None,
+                                 None, None, None, state, None)
+        result = directive.run()
+        _verify_result(result)
+
+    def test_pyexcel_table_directive_with_width(self):
+        from sphinxcontrib.excel import PyexcelTable
+        state = MagicMock()
+        arguments = [os.path.join("tests", "fixtures", "test.csv"),
+                     'width: 600']
+        state.document.settings.env.relfn2path.return_value = (
+            None, arguments[0])
+        directive = PyexcelTable('test', arguments, None, None,
+                                 None, None, None, state, None)
+        result = directive.run()
+        _verify_result(result)
+
+    def test_pyexcel_table_with_content(self):
+        from sphinxcontrib.excel import PyexcelTable
+        state = MagicMock()
+        content = []
+        with open(os.path.join("tests", "fixtures", "test.csv"), 'r') as f:
+            content.append(f.readline())
+        directive = PyexcelTable('test', [], None, content,
+                                 None, None, None, state, None)
+        result = directive.run()
+        _verify_result(result)
 
 
 def test_setup():
