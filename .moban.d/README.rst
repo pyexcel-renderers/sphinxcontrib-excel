@@ -37,7 +37,7 @@ Here is the syntax to present your excel file in sphinx documentation::
 
     .. pyexcel-table:: filename.csv
 
-And 'filename.csv' is expected in the director where the referring rst file is.
+And 'filename.csv' is expected in the directory where the referring rst file is.
 Relative path needs to be given if your file is somewhere else.
 
 For example, the following rst statment:

@@ -39,6 +39,7 @@ def _verify_result(directive_run_result):
     assert '<raw format="html" xml:space="preserve">' in content
     assert 'var mydata = [[1, 2, 3]]' in content
     assert 'activateFirst' in content
+    return content
 
 
 class TestTableDirective:
@@ -65,13 +66,14 @@ class TestTableDirective:
         from sphinxcontrib.excel import PyexcelTable
         state = MagicMock()
         arguments = [os.path.join("tests", "fixtures", "test.csv"),
-                     'width: 600']
+                     'width: 400']
         state.document.settings.env.relfn2path.return_value = (
             None, arguments[0])
         directive = PyexcelTable('test', arguments, None, None,
                                  None, None, None, state, None)
         result = directive.run()
-        _verify_result(result)
+        content = _verify_result(result)
+        assert '<ul class="tab" style="width:400px">' in content
 
     def test_pyexcel_table_with_content(self):
         from sphinxcontrib.excel import PyexcelTable
@@ -83,6 +85,35 @@ class TestTableDirective:
                                  None, None, None, state, None)
         result = directive.run()
         _verify_result(result)
+
+    def test_pyexcel_table_with_multiple_sheet_content(self):
+        from sphinxcontrib.excel import PyexcelTable
+        state = MagicMock()
+        content = [
+            '---pyexcel:Sheet 1---',
+            '1,2,3',
+            '4,5,6',
+            '7,8,9',
+            '---pyexcel---',
+            '---pyexcel:Sheet 2---',
+            'X,Y,Z',
+            '1,2,3',
+            '4,5,6',
+            '---pyexcel---',
+            '---pyexcel:Sheet 3---',
+            'O,P,Q',
+            '3,2,1',
+            '4,3,2',
+        ]
+        directive = PyexcelTable('test', [], None, content,
+                                 None, None, None, state, None)
+        result = directive.run()
+        result = str(result[0])
+        assert '<raw format="html" xml:space="preserve">' in result
+        assert '[["O", "P", "Q"], [3, 2, 1], [4, 3, 2]];' in result
+        assert '[["X", "Y", "Z"], [1, 2, 3], [4, 5, 6]];' in result
+        assert '[[1, 2, 3], [4, 5, 6], [7, 8, 9]];' in result
+        assert 'activateFirst' in result
 
 
 def test_setup():
