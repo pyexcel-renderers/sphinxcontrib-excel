@@ -37,13 +37,17 @@ Here is the syntax to present your excel file in sphinx documentation::
 
     .. pyexcel-table:: filename.csv
 
+And 'filename.csv' is expected in the director where the referring rst file is.
+Relative path needs to be given if your file is somewhere else.
 
 For example, the following rst statment:
 
-.. image:: sphinx-doc-source.png
+.. image:: https://github.com/pyexcel/sphinxcontrib-excel/blob/master/sphinx-doc-source.png
+   :alt: table directive
 
 is translated as:
 
-.. image:: sphinx-doc-view.png
+.. image:: https://github.com/pyexcel/sphinxcontrib-excel/blob/master/sphinx-doc-view.png
+   :alt: table view
 
 {%endblock%}
