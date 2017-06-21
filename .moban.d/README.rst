@@ -9,14 +9,14 @@
 {%block features %}
 **{{name}}** uses pyexcel to read an excel files and renders into an excel-alike sheet in your sphinx documentation. The excel file formats are:
 
-   #. csv
-   #. tsv
-   #. csvz
-   #. tsvz
-   #. xls
-   #. xlsx
-   #. xlsm
-   #. ods
+#. csv
+#. tsv
+#. csvz
+#. tsvz
+#. xls
+#. xlsx
+#. xlsm
+#. ods
 
 {%endblock%}
 
@@ -42,18 +42,18 @@ Relative path needs to be given if your file is somewhere else.
 
 For example, the following rst statment:
 
-.. image:: https://github.com/pyexcel/sphinxcontrib-excel/blob/master/sphinx-doc-source.png
+.. image:: https://github.com/pyexcel/sphinxcontrib-excel/raw/master/sphinx-doc-source.png
    :alt: table directive
 
 is translated as:
 
-.. image:: https://github.com/pyexcel/sphinxcontrib-excel/blob/master/sphinx-doc-view.png
+.. image:: https://github.com/pyexcel/sphinxcontrib-excel/raw/master/sphinx-doc-view.png
    :alt: table view
 
 Embed csv into your sphinx documentation
 --------------------------------------------------
 
-Here is the syntax for embedded csv (`rendered result <http://pyexcel.readthedocs.io/en/latest/#usage>`_):
+Here is the syntax for embedded csv, `rendering as a single handsontable <http://pyexcel.readthedocs.io/en/latest/#usage>`_:
 
 .. code-block::
 
@@ -66,8 +66,9 @@ Here is the syntax for embedded csv (`rendered result <http://pyexcel.readthedoc
       Ceri,30
       Dean,26  
 
-Here is the complex example for embedded csv, which will be rendered as
-multi-tab handsontable (`rendered result <http://pyexcel.readthedocs.io/en/latest/tutorial_data_conversion.html#how-to-obtain-a-dictionary-from-a-multiple-sheet-book>`_):
+Here is the complex example for embedded csv, which will be `rendered as
+multi-tab handsontable <http://pyexcel.readthedocs.io/en/latest/tutorial_data_conversion.html#how-to-obtain-a-dictionary-from-a-multiple-sheet-book>`_):
+
 
 .. code-block::
 

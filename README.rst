@@ -77,7 +77,7 @@ is translated as:
 Embed csv into your sphinx documentation
 --------------------------------------------------
 
-Here is the syntax for embedded csv `rendering as a single handsontable <http://pyexcel.readthedocs.io/en/latest/#usage>`_:
+Here is the syntax for embedded csv, `rendering as a single handsontable <http://pyexcel.readthedocs.io/en/latest/#usage>`_:
 
 .. code-block::
 
@@ -92,6 +92,7 @@ Here is the syntax for embedded csv `rendering as a single handsontable <http://
 
 Here is the complex example for embedded csv, which will be `rendered as
 multi-tab handsontable <http://pyexcel.readthedocs.io/en/latest/tutorial_data_conversion.html#how-to-obtain-a-dictionary-from-a-multiple-sheet-book>`_):
+
 
 .. code-block::
 
