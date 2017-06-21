@@ -77,10 +77,12 @@ is translated as:
 Embed csv into your sphinx documentation
 --------------------------------------------------
 
-Here is the syntax for embedded csv (`rendered result <http://pyexcel.readthedocs.io/en/latest/#usage>`_)::
+Here is the syntax for embedded csv (`rendered result <http://pyexcel.readthedocs.io/en/latest/#usage>`_):
+
+.. code-block::
 
    .. pyexcel-table::
-   
+
       ---pyexcel:example table---
       Name,Age
       Adam,28
@@ -89,10 +91,12 @@ Here is the syntax for embedded csv (`rendered result <http://pyexcel.readthedoc
       Dean,26  
 
 Here is the complex example for embedded csv, which will be rendered as
-multi-tab handsontable (`rendered result <http://pyexcel.readthedocs.io/en/latest/tutorial_data_conversion.html#how-to-obtain-a-dictionary-from-a-multiple-sheet-book>`_)::
+multi-tab handsontable (`rendered result <http://pyexcel.readthedocs.io/en/latest/tutorial_data_conversion.html#how-to-obtain-a-dictionary-from-a-multiple-sheet-book>`_):
+
+.. code-block::
 
    .. pyexcel-table::
-   
+
       ---pyexcel:Sheet 1---
       1,2,3
       4,5,6
