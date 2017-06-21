@@ -74,6 +74,41 @@ is translated as:
 .. image:: https://github.com/pyexcel/sphinxcontrib-excel/blob/master/sphinx-doc-view.png
    :alt: table view
 
+Embed csv into your sphinx documentation
+--------------------------------------------------
+
+Here is the syntax for embedded csv (`rendered result <http://pyexcel.readthedocs.io/en/latest/#usage>`_)::
+
+   .. pyexcel-table::
+   
+      ---pyexcel:example table---
+      Name,Age
+      Adam,28
+      Beatrice,29
+      Ceri,30
+      Dean,26  
+
+Here is the complex example for embedded csv, which will be rendered as
+multi-tab handsontable (`rendered result <http://pyexcel.readthedocs.io/en/latest/tutorial_data_conversion.html#how-to-obtain-a-dictionary-from-a-multiple-sheet-book>`_)::
+
+   .. pyexcel-table::
+   
+      ---pyexcel:Sheet 1---
+      1,2,3
+      4,5,6
+      7,8,9
+      ---pyexcel---
+      ---pyexcel:Sheet 2---
+      X,Y,Z
+      1,2,3
+      4,5,6
+      ---pyexcel---
+      ---pyexcel:Sheet 3---
+      O,P,Q
+      3,2,1
+      4,3,2
+
+
 
 Support the project
 ================================================================================

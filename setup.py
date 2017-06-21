@@ -41,8 +41,8 @@ CLASSIFIERS = [
 INSTALL_REQUIRES = [
     'docutils',
     'pyexcel>=0.5.0',
-    'pyexcel-xls>=0.3.0',
-    'pyexcel-odsr>=0.3.0',
+    'pyexcel-xls>=0.4.0',
+    'pyexcel-odsr>=0.4.0',
     'pyexcel-handsontable',
     'sphinx',
 ]
