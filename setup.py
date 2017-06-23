@@ -10,7 +10,7 @@ PY26 = PY2 and sys.version_info[1] < 7
 
 NAME = 'sphinxcontrib-excel'
 AUTHOR = 'C.W.'
-VERSION = '0.0.1'
+VERSION = ''
 EMAIL = 'wangc_2011@hotmail.com'
 LICENSE = 'New BSD'
 DESCRIPTION = (
