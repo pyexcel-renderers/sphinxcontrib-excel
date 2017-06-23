@@ -33,6 +33,16 @@ Please add sphinxcontrib-excel into your conf.py file::
 	    ...
 	]
 
+And you will need to copy a few resources file to your sphinx source directory::
+
+    resources/_template/layout.html
+	resources/_static/handsontable.full.min.js
+	resources/_static/handsontable.full.min.css
+
+.. note::
+
+   `resources` directory is in github. please check it out.
+
 Here is the syntax to present your excel file in sphinx documentation::
 
     .. pyexcel-table:: filename.csv
