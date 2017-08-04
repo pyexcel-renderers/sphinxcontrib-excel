@@ -9,6 +9,7 @@
 """
 from docutils.parsers.rst import Directive
 from sphinx.util.i18n import search_image_for_language
+from docutils.parsers.rst import directives
 
 import docutils.core
 import pyexcel
@@ -16,25 +17,25 @@ import pyexcel
 
 class PyexcelTable(Directive):
     required_arguments = 0
-    optional_arguments = 3
+    optional_arguments = 1
     final_argument_whitespace = True
     has_content = True
+    option_spec = {
+        'height': directives.nonnegative_int,
+        'width': directives.nonnegative_int
+    }
 
     def run(self):
         env = self.state.document.settings.env
         width = 600
+        height = None
+        import pdb; pdb.set_trace()
         if len(self.arguments) > 0:
             fn = search_image_for_language(self.arguments[0], env)
             relfn, excel_file = env.relfn2path(fn)
             env.note_dependency(relfn)
-            if len(self.arguments) == 2:
-                width = self.arguments[1]
-                width = width.split(' ')[-1]
-                width = int(width)
-            if len(self.arguments) == 3:
-                height = self.arguments[2]
-                height = height.split(' ')[-1]
-                height = int(height)
+            width = self.options.get('width', 600)
+            height = self.options.get('height')
             book = pyexcel.get_book(file_name=excel_file)
         else:
             content = '\n'.join(self.content)
