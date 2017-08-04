@@ -29,7 +29,6 @@ class PyexcelTable(Directive):
         env = self.state.document.settings.env
         width = 600
         height = None
-        import pdb; pdb.set_trace()
         if len(self.arguments) > 0:
             fn = search_image_for_language(self.arguments[0], env)
             relfn, excel_file = env.relfn2path(fn)
