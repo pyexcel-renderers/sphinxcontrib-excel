@@ -3,7 +3,8 @@ name: "sphinxcontrib-excel"
 misc: sphinxcontrib
 exclude_doctest: true
 nodocs: true
-version: 0.0.1
+version: 0.0.2
+current_version: 0.0.2
 release: 0.0.1
 dependencies:
   - docutils

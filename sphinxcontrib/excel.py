@@ -42,12 +42,22 @@ class PyexcelTable(Directive):
                                     multiple_sheets=multiple_sheets,
                                     lineterminator='\n',
                                     file_type='csv')
-        handsontable = book.get_handsontable_html(embed=True,
-                                                  width=width)
-        return [docutils.nodes.raw('', handsontable,
+        html = self.render_html(book, width)
+        return [docutils.nodes.raw('', html,
                                    format='html')]
+
+    def render_html(self, book, width):
+        return book.get_handsontable_html(embed=True, width=width)
+
+
+class Pyecharts(PyexcelTable):
+
+    def render_html(self, book, width):
+        return book.get_echarts_html(embed=True,
+                                     width=width)
 
 
 def setup(app):
     app.add_directive('pyexcel-table', PyexcelTable)
+    app.add_directive('pyexcel-echarts', Pyecharts)
     return {'version': '0.0.1'}
