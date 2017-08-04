@@ -16,7 +16,7 @@ import pyexcel
 
 class PyexcelTable(Directive):
     required_arguments = 0
-    optional_arguments = 2
+    optional_arguments = 3
     final_argument_whitespace = True
     has_content = True
 
@@ -31,6 +31,10 @@ class PyexcelTable(Directive):
                 width = self.arguments[1]
                 width = width.split(' ')[-1]
                 width = int(width)
+            if len(self.arguments) == 3:
+                height = self.arguments[2]
+                height = height.split(' ')[-1]
+                height = int(height)
             book = pyexcel.get_book(file_name=excel_file)
         else:
             content = '\n'.join(self.content)
@@ -42,18 +46,20 @@ class PyexcelTable(Directive):
                                     multiple_sheets=multiple_sheets,
                                     lineterminator='\n',
                                     file_type='csv')
-        html = self.render_html(book, width)
+        html = self.render_html(book, width, height)
         return [docutils.nodes.raw('', html,
                                    format='html')]
 
-    def render_html(self, book, width):
-        return book.get_handsontable_html(embed=True, width=width)
+    def render_html(self, book, width, height):
+        return book.get_handsontable_html(
+            embed=True, width=width, height=height)
 
 
 class Pyecharts(PyexcelTable):
 
-    def render_html(self, book, width):
+    def render_html(self, book, width, height):
         return book.get_echarts_html(embed=True,
+                                     height=height,
                                      width=width)
 
 
