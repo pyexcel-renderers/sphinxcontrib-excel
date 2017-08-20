@@ -65,15 +65,16 @@ class TestTableDirective:
     def test_pyexcel_table_directive_with_width(self):
         from sphinxcontrib.excel import PyexcelTable
         state = MagicMock()
-        arguments = [os.path.join("tests", "fixtures", "test.csv"),
-                     'width: 400']
+        arguments = [os.path.join("tests", "fixtures", "test.csv")]
+        options = {'width': 400}
         state.document.settings.env.relfn2path.return_value = (
             None, arguments[0])
-        directive = PyexcelTable('test', arguments, None, None,
+        directive = PyexcelTable('test', arguments, options, None,
                                  None, None, None, state, None)
         result = directive.run()
         content = _verify_result(result)
-        assert '<ul class="tab" style="width:400px">' in content
+        # make sure with 400 takes effect
+        assert '<ul class="tab" style="width:400px;">' in content
 
     def test_pyexcel_table_with_content(self):
         from sphinxcontrib.excel import PyexcelTable

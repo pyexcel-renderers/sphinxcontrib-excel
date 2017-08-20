@@ -29,12 +29,14 @@ class PyexcelTable(Directive):
         env = self.state.document.settings.env
         width = 600
         height = None
+
         if len(self.arguments) > 0:
             fn = search_image_for_language(self.arguments[0], env)
             relfn, excel_file = env.relfn2path(fn)
             env.note_dependency(relfn)
-            width = self.options.get('width', 600)
-            height = self.options.get('height')
+            if self.options:
+                width = self.options.get('width', 600)
+                height = self.options.get('height')
             book = pyexcel.get_book(file_name=excel_file)
         else:
             content = '\n'.join(self.content)
